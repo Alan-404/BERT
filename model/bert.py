@@ -23,8 +23,6 @@ class BERT(nn.Module):
         self.encoder = Encoder(n_layers, d_model, n_heads, activation, dropout_p)
         self.classification = Classification(d_model, n_tokens)
 
-        self.d_model = d_model
-
     def forward(self, x: torch.Tensor, lengths: Optional[torch.Tensor] = None):
         batch_size, length = x.size()
         if lengths is not None:
